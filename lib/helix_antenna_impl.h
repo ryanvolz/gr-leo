@@ -51,7 +51,8 @@ public:
    * \param circumference The circumference
    *
    */
-  helix_antenna_impl(antenna_t type, double frequency, polarization_t polarization,
+  helix_antenna_impl(antenna_t type, double frequency,
+                     polarization_t polarization,
                      double pointing_error, size_t turns,
                      double turn_spacing, double circumference);
 

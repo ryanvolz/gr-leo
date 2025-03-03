@@ -61,7 +61,8 @@ precipitation_itu_impl::precipitation_itu_impl(
    * TODO: Extract info about Height above sea-level d_h ITU data
    */
   std::filesystem::path gr_prefix = gr::prefix();
-  std::filesystem::path data_path = (gr_prefix / GR_LEO_REL_DATA_PATH).lexically_normal();
+  std::filesystem::path data_path = (gr_prefix /
+                                     GR_LEO_REL_DATA_PATH).lexically_normal();
 
   d_isotherm_height = utils::parser_ITU_heatmap(
                         (data_path / "ITU_RREC_P839" / "Lat.txt").string(),

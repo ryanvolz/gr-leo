@@ -33,7 +33,8 @@ namespace leo {
 namespace antenna {
 
 generic_antenna::generic_antenna_sptr
-yagi_antenna::make(antenna_t type, double frequency, polarization_t polarization,
+yagi_antenna::make(antenna_t type, double frequency,
+                   polarization_t polarization,
                    double pointing_error, double boom_length)
 {
   return generic_antenna::generic_antenna_sptr(

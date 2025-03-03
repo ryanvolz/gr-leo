@@ -33,7 +33,8 @@ namespace leo {
 namespace antenna {
 
 generic_antenna::generic_antenna_sptr
-dipole_antenna::make(antenna_t type, double frequency, polarization_t polarization,
+dipole_antenna::make(antenna_t type, double frequency,
+                     polarization_t polarization,
                      double pointing_error)
 {
   return generic_antenna::generic_antenna_sptr(

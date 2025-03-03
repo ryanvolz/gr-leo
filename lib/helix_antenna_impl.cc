@@ -32,7 +32,8 @@ namespace leo {
 namespace antenna {
 
 generic_antenna::generic_antenna_sptr
-helix_antenna::make(antenna_t type, double frequency, polarization_t polarization,
+helix_antenna::make(antenna_t type, double frequency,
+                    polarization_t polarization,
                     double pointing_error, size_t turns,
                     double turn_spacing, double circumference)
 {

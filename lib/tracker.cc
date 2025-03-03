@@ -83,27 +83,27 @@ tracker::tracker(satellite::satellite_sptr satellite_info,
                  const double noise_figure,
                  const double noise_temp,
                  const double rx_bw)
-    : d_time_resolution_us(time_resolution_us),
-      d_observer(gs_lat, gs_lon, gs_alt),
-      d_satellite(satellite_info),
-      d_tle(libsgp4::Tle(d_satellite->get_tle_title(),
-                         d_satellite->get_tle_1(),
-                         d_satellite->get_tle_2())),
-      d_sgp4(d_tle),
-      d_obs_start(parse_ISO_8601_UTC(obs_start)),
-      d_obs_end(parse_ISO_8601_UTC(obs_end)),
-      d_obs_elapsed(d_obs_start),
-      d_comm_freq_tx(comm_freq_tx),
-      d_comm_freq_rx(comm_freq_rx),
-      d_tx_antenna(tx_antenna),
-      d_rx_antenna(rx_antenna),
-      d_gs_alt(gs_alt),
-      d_gs_lat(gs_lat),
-      d_gs_lon(gs_lon),
-      d_tx_power_dbm(tx_power_dbm),
-      d_noise_figure(noise_figure),
-      d_noise_temp(noise_temp),
-      d_rx_bw(rx_bw)
+  : d_time_resolution_us(time_resolution_us),
+    d_observer(gs_lat, gs_lon, gs_alt),
+    d_satellite(satellite_info),
+    d_tle(libsgp4::Tle(d_satellite->get_tle_title(),
+                       d_satellite->get_tle_1(),
+                       d_satellite->get_tle_2())),
+    d_sgp4(d_tle),
+    d_obs_start(parse_ISO_8601_UTC(obs_start)),
+    d_obs_end(parse_ISO_8601_UTC(obs_end)),
+    d_obs_elapsed(d_obs_start),
+    d_comm_freq_tx(comm_freq_tx),
+    d_comm_freq_rx(comm_freq_rx),
+    d_tx_antenna(tx_antenna),
+    d_rx_antenna(rx_antenna),
+    d_gs_alt(gs_alt),
+    d_gs_lat(gs_lat),
+    d_gs_lon(gs_lon),
+    d_tx_power_dbm(tx_power_dbm),
+    d_noise_figure(noise_figure),
+    d_noise_temp(noise_temp),
+    d_rx_bw(rx_bw)
 
 {
   if (d_obs_end <= d_obs_start) {
@@ -165,10 +165,10 @@ tracker::get_satellite_info()
   return d_satellite;
 }
 
-double tracker::find_max_elevation(libsgp4::Observer& observer,
-                                   libsgp4::SGP4& sgp4,
-                                   const libsgp4::DateTime& aos,
-                                   const libsgp4::DateTime& los)
+double tracker::find_max_elevation(libsgp4::Observer &observer,
+                                   libsgp4::SGP4 &sgp4,
+                                   const libsgp4::DateTime &aos,
+                                   const libsgp4::DateTime &los)
 {
 
   bool running;
@@ -238,10 +238,10 @@ double tracker::find_max_elevation(libsgp4::Observer& observer,
 }
 
 libsgp4::DateTime
-tracker::find_crossing_point_time(libsgp4::Observer& observer,
-                                  libsgp4::SGP4& sgp4,
-                                  const libsgp4::DateTime& initial_time1,
-                                  const libsgp4::DateTime& initial_time2,
+tracker::find_crossing_point_time(libsgp4::Observer &observer,
+                                  libsgp4::SGP4 &sgp4,
+                                  const libsgp4::DateTime &initial_time1,
+                                  const libsgp4::DateTime &initial_time2,
                                   bool finding_aos)
 {
   bool running;
@@ -477,13 +477,13 @@ tracker::get_velocity()
   return topo.range_rate;
 }
 
-libsgp4::DateTime tracker::parse_ISO_8601_UTC(const std::string& datetime)
+libsgp4::DateTime tracker::parse_ISO_8601_UTC(const std::string &datetime)
 {
   std::tm tm;
   std::istringstream ss(datetime);
   ss >> std::get_time(&tm, "%Y-%m-%dT%H:%M:%S");
   return libsgp4::DateTime(
-      tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec);
+           tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec);
 }
 
 double
@@ -565,7 +565,10 @@ tracker::advance_time(double us)
   d_obs_elapsed = d_obs_elapsed.AddMicroseconds(us);
 }
 
-libsgp4::DateTime tracker::get_elapsed_time() { return d_obs_elapsed; }
+libsgp4::DateTime tracker::get_elapsed_time()
+{
+  return d_obs_elapsed;
+}
 
 bool
 tracker::is_observation_over()

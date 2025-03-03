@@ -352,19 +352,19 @@ private:
    * Calculates the maximum elevation of a satellite for a specific
    * observation timeframe.
    */
-  double find_max_elevation(libsgp4::Observer& observer,
-                            libsgp4::SGP4& sgp4,
-                            const libsgp4::DateTime& aos,
-                            const libsgp4::DateTime& los);
+  double find_max_elevation(libsgp4::Observer &observer,
+                            libsgp4::SGP4 &sgp4,
+                            const libsgp4::DateTime &aos,
+                            const libsgp4::DateTime &los);
 
   /*!
    * Estimates the timestamp that an orbiting satellite crosses the horizon.
    */
-  libsgp4::DateTime find_crossing_point_time(libsgp4::Observer& observer,
-                                             libsgp4::SGP4& sgp4,
-                                             const libsgp4::DateTime& initial_time1,
-                                             const libsgp4::DateTime& initial_time2,
-                                             bool finding_aos);
+  libsgp4::DateTime find_crossing_point_time(libsgp4::Observer &observer,
+      libsgp4::SGP4 &sgp4,
+      const libsgp4::DateTime &initial_time1,
+      const libsgp4::DateTime &initial_time2,
+      bool finding_aos);
 };
 
 } // namespace leo

@@ -47,7 +47,8 @@ public:
    * polarization
    * \param pointing_error The pointing error of the antenna in degrees.
    */
-  dipole_antenna_impl(antenna_t type, double frequency, polarization_t polarization,
+  dipole_antenna_impl(antenna_t type, double frequency,
+                      polarization_t polarization,
                       double pointing_error);
 
   ~dipole_antenna_impl();

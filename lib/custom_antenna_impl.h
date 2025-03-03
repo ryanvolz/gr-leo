@@ -51,7 +51,8 @@ public:
    * \param beamwidth The beamwidth of the antenna.
    * \param rolloff_gain The rolloff gain of the antenna.
    */
-  custom_antenna_impl(antenna_t type, double frequency, polarization_t polarization,
+  custom_antenna_impl(antenna_t type, double frequency,
+                      polarization_t polarization,
                       double pointing_error, double gain, double beamwidth,
                       double rolloff_gain);
 

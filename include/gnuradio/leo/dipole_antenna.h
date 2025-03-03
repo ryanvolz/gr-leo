@@ -50,7 +50,8 @@ public:
    * \return a boost::shared_ptr to the constructed tracker object.
    */
   static generic_antenna::generic_antenna_sptr
-  make(antenna_t type, double frequency, polarization_t polarization, double pointing_error);
+  make(antenna_t type, double frequency, polarization_t polarization,
+       double pointing_error);
 
   dipole_antenna() {};
 
